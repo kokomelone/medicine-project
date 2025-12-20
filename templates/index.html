@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicine Alternative Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+</head>
+<body>
+
+<div class="container">
+    <h1>💊 Medicine Alternative Finder</h1>
+    <p class="subtitle">
+        Find medicines with the same salt and compare prices easily
+    </p>
+
+    <div class="search-box">
+        <input type="text" id="medicineInput" placeholder="e.g. Allegra 120">
+        <button onclick="searchMedicine()">Search</button>
+    </div>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function searchMedicine() {
+    const medicine = document.getElementById("medicineInput").value;
+    const resultDiv = document.getElementById("result");
+
+    if (!medicine) {
+        resultDiv.innerHTML = "<p>Please enter a medicine name.</p>";
+        return;
+    }
+
+    resultDiv.innerHTML = "<p>🔍 Searching...</p>";
+
+    fetch(`/search?medicine=${encodeURIComponent(medicine)}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) {
+                resultDiv.innerHTML = `<p>${data.error}</p>`;
+                return;
+            }
+
+            let html = `
+                <div class="section">
+                    <strong>Salt Composition:</strong>
+                    <div class="card">${data.salt_composition}</div>
+                </div>
+
+                <div class="section">
+                    <strong>Price Overview</strong>
+                    <div class="card">
+                        <div class="price-range">
+                            <span>Min: ₹${data.price_range.min}</span>
+                            <span>Max: ₹${data.price_range.max}</span>
+                            <span>Avg: ₹${data.price_range.average}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <strong>💰 Cheapest Option</strong>
+                    <div class="card cheapest">
+                        ${data.best_budget_option.name} <br>
+                        <strong>₹${data.best_budget_option.price}</strong>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <strong>Top Alternatives</strong>
+                    <div class="card">
+                        <ul>
+            `;
+
+            data.alternatives.forEach(item => {
+                html += `<li>${item.brand_name} — ₹${item.price_inr}</li>`;
+            });
+
+            html += `
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            resultDiv.innerHTML = html;
+        })
+        .catch(() => {
+            resultDiv.innerHTML = "<p>Error fetching data.</p>";
+        });
+}
+</script>
+
+</body>
+</html>

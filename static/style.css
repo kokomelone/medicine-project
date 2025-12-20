@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #6f7c92, #8098b0);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 650px;
+    margin: 60px auto;
+    background: #f8fafc;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(30,64,175,0.15);
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    color: #1e293b;
+}
+
+.subtitle {
+    text-align: center;
+    color: #475569;
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 15px;
+}
+
+button {
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.92;
+}
+
+button:hover {
+    background: #1e40af;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+.card {
+    background: #eef2ff;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.price-range {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.cheapest {
+    background: linear-gradient(135deg, #ecfeff, #f0fdfa);
+    border-left: 5px solid #0d9488;
+}
+
+ul {
+    padding-left: 18px;
+}
+
+li {
+    margin-bottom: 6px;
+}

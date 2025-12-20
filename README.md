@@ -45,6 +45,7 @@ This project focuses on real-world healthcare utility and efficient data process
 ---
 
 ## Project Structure
+```
 medicine-project/
 ├── flaskcode.py
 ├── backend.py
@@ -54,6 +55,8 @@ medicine-project/
 ├── static/
 │   └── style.css
 └── .gitignore
+```
+
 ---
 
 ## How to Run Locally

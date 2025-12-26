@@ -1,46 +1,71 @@
 # Medicine Alternative Finder
 
-A web application that helps users find alternative medicines with the same salt composition and compare their prices to make informed and cost-effective healthcare decisions.
+A backend-focused web application that identifies alternative medicines with the same salt composition and compares their prices to support cost-aware healthcare decisions.
 
 ---
 
-## Overview
+## Problem Statement
 
-The Medicine Alternative Finder allows users to search for a medicine by name and retrieves all other medicines with the same salt composition. It provides a detailed price comparison, highlighting budget-friendly and premium options.
+Many medicines available in the market have equivalent alternatives with identical salt compositions but significantly different prices.  
+Patients often lack visibility into these alternatives, which can lead to unnecessary healthcare expenses.
 
-This project focuses on real-world healthcare utility and efficient data processing on a large dataset.
+This project aims to bridge that gap by programmatically identifying equivalent medicines and presenting structured price comparisons.
 
 ---
 
-## Features
+## Solution Overview
 
-- Case-insensitive medicine search  
-- Automatic salt composition detection  
-- Identification of all equivalent medicines  
-- Price analysis including minimum, maximum, and average price  
-- Highlights the cheapest and most expensive options  
-- Displays affordable alternatives sorted by price  
+The application allows users to search for a medicine by name.  
+It automatically extracts the salt composition and retrieves all medicines sharing the same composition from a large dataset.
+
+The results are analyzed and presented with clear pricing insights.
+
+---
+
+## Key Features
+
+- Case-insensitive medicine search
+- Automatic salt composition detection
+- Identification of all equivalent medicines
+- Price analysis including:
+  - Minimum price
+  - Maximum price
+  - Average price
+- Highlighting of cheapest and most expensive options
+- Sorted display of affordable alternatives
 - Efficient handling of a large dataset (220k+ records)
+
+---
+
+## Technical Approach
+
+- Normalize medicine names for reliable searching
+- Extract salt composition from the selected medicine
+- Filter the dataset to identify matching compositions
+- Perform price aggregation and comparison
+- Render results using server-side templates
+
+The focus is on backend logic, data correctness, and clarity of implementation.
 
 ---
 
 ## Tech Stack
 
 ### Backend
-- Python  
-- Flask  
-- Pandas  
+- Python
+- Flask
+- Pandas
 
 ### Frontend
-- HTML (Jinja2 Templates)  
-- CSS  
+- HTML (Jinja2 Templates)
+- CSS
 
 ### Data
-- CSV-based medicine dataset  
+- CSV-based medicine dataset (220k+ records)
 
 ### Tools
-- Git and GitHub  
-- Visual Studio Code  
+- Git & GitHub
+- Visual Studio Code
 
 ---
 
@@ -74,6 +99,25 @@ medicine-project/
    python flaskcode.py  
 
 5. Open the application in your browser  
-   http://127.0.0.1:5000  
+   http://127.0.0.1:5000
+
+## Limitations
+- Dataset is static and CSV-based
+- No authentication or user accounts
+- UI is minimal and focused on functionality
+
+---
+
+## Future Improvements
+•	Database integration for better scalability
+
+•	API-based architecture
+
+•	Improved search tolerance for misspellings
+
+•	Enhanced UI/UX
+
+•	Cloud deployment
+
 
 
